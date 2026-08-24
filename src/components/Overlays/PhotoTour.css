@@ -1,0 +1,171 @@
+/* Fullscreen Photo Tour Modal Overlay */
+.photo-tour-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-bg-white);
+  z-index: var(--z-photo-tour);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideUpModal 0.3s cubic-bezier(0.2, 0, 0, 1) forwards;
+}
+
+@keyframes slideUpModal {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Sticky Header */
+.photo-tour-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background-color: var(--color-bg-white);
+  border-bottom: 1px solid var(--color-divider);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 10;
+}
+
+.photo-tour-close-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--color-text-primary);
+  transition: background-color 0.15s ease;
+}
+
+.photo-tour-close-btn:hover {
+  background-color: var(--color-hover-bg);
+}
+
+.photo-tour-header-title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.photo-tour-header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* Body Layout: Left Sidebar + Right Feed */
+.photo-tour-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Left Sidebar Categories */
+.photo-tour-sidebar {
+  width: 280px;
+  padding: 32px 24px 32px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+}
+
+.category-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-radius: 22px;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  background: transparent;
+  text-align: left;
+  transition: background-color 0.15s ease;
+}
+
+.category-nav-btn:hover {
+  background-color: var(--color-hover-bg);
+}
+
+.category-nav-btn.active {
+  background-color: var(--color-hover-bg);
+  font-weight: var(--font-weight-semibold);
+}
+
+.category-count {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+/* Right Photo Feed */
+.photo-tour-feed {
+  flex: 1;
+  padding: 32px 40px 64px 24px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.photo-category-section {
+  margin-bottom: 48px;
+}
+
+.category-section-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: 16px;
+  padding-top: 8px;
+}
+
+.photo-grid-two-col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.photo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.photo-card-img-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background-color: var(--color-hover-bg);
+}
+
+.photo-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.photo-card:hover .photo-card-img {
+  filter: brightness(0.92);
+}
+
+.photo-card-caption {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-regular);
+}
